@@ -1,0 +1,145 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Designsninja">
+<!-- description -->
+<meta name="description" content="Torneo is creative agency, corporate, simple and clean template, Based on Bootstrap responsive multipurpose agency and portfolio HTML5 template with 28 unique home page demos">
+<!-- keywords -->
+<meta name="keywords" content="creative, revolution slider, business, photography, portfolio, one page, bootstrap responsive, start-up, ui/ux, html5, css3, studio, branding, creative design, multipurpose, parallax, personal, masonry, grid, coming soon, carousel, career">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Torneo - Creative Agency, Business Multi-purpose template</title>
+<link rel="shortcut icon" href="{% static 'assets/images/favicon.ico' %}">
+
+<!-- Core Style Sheets -->
+<link rel="stylesheet" href="{% static 'assets/css/master.css' %}">
+<!-- Responsive Style Sheets -->
+<link rel="stylesheet" href="{% static 'assets/css/responsive.css' %}">
+<!-- Revolution Style Sheets -->
+<link rel="stylesheet" type="text/css" href="{% static 'revolution/css/settings.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'revolution/css/layers.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'revolution/css/navigation.css' %}">
+
+</head>
+<body>
+
+
+<!--== Wrapper Start ==-->
+<div class="wrapper">
+
+  <!--== Header Start ==-->
+  <nav class="navbar navbar-default navbar-fixed white bootsnav on no-full">
+  	<!--== Start Top Search ==-->
+    <div class="fullscreen-search-overlay" id="search-overlay"> <a href="#" class="fullscreen-close" id="fullscreen-close-button"><i class="icofont icofont-close"></i></a>
+      <div id="fullscreen-search-wrapper">
+        <form method="get" id="fullscreen-searchform">
+          <input type="text" value="" placeholder="Type and hit Enter..." id="fullscreen-search-input" class="search-bar-top">
+          <i class="fullscreen-search-icon icofont icofont-search">
+          <input value="" type="submit">
+          </i>
+        </form>
+      </div>
+    </div>
+    <!--== End Top Search ==-->
+    <div class="container">
+      <!--== Start Atribute Navigation ==-->
+      <div class="attr-nav hidden-xs sm-display-none">
+        <ul class="social-media-dark social-top">
+          <li><a href="#" class="icofont icofont-social-facebook"></a></li>
+          <li><a href="#" class="icofont icofont-social-twitter"></a></li>
+          <li><a href="#" class="icofont icofont-social-dribbble"></a></li>
+        </ul>
+      </div>
+      <!--== End Atribute Navigation ==-->
+
+      <!--== Start Header Navigation ==-->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu"> <i class="tr-icon ion-android-menu"></i> </button>
+        <div class="logo"> <a href="index.html"> <img class="logo logo-display" src="{% static 'assets/images/logo1.png' %}" alt=""> <img class="logo logo-scrolled" src="{% static 'assets/images/logo1.png' %}" alt=""> </a> </div>
+      </div>
+      <!--== End Header Navigation ==-->
+
+      <!--== Collect the nav links, forms, and other content for toggling ==-->
+      <div class="collapse navbar-collapse" id="navbar-menu">
+        <ul class="nav navbar-nav navbar-center" data-in="fadeIn" data-out="fadeOut">
+          <li class="dropdown megamenu-fw"> <a href="index.html" class="dropdown-toggle" data-toggle="dropdown">Home</a>
+           
+          </li>
+          <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages</a>
+            
+          </li>
+             
+          <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Shop</a>
+            
+          </li>
+          
+        </ul>
+      </div>
+      <!--== /.navbar-collapse ==-->
+    </div>
+  </nav>
+  <!--== Header End ==-->
+  {% block content %}
+  
+  {% endblock %}
+  <!--== Footer Start ==-->
+  <footer class="footer dark-block">
+    <div class="footer-copyright">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-4 col-xs-12 display-table" style="height: 40px;">
+            <div class="copy-right text-left v-align">© 2019 <i class="icon icofont icofont-heart-alt"></i> Torneo. All rights reserved</div>
+          </div>
+          <div class="col-sm-4 col-xs-12">
+          	<div class="logo display-block height-auto"><a href="index.html">
+          		<img class="logo margin-left-auto margin-right-auto" style="height: 100px;" src="{% static 'assets/images/logo1.png' %}" alt="torneo logo"></a>
+          	</div>
+          </div>
+          <div class="col-sm-4 col-xs-12">
+            <ul class="social-media">
+              <li><a href="#" class="icofont icofont-social-facebook"></a></li>
+              <li><a href="#" class="icofont icofont-social-twitter"></a></li>
+              <li><a href="#" class="icofont icofont-social-behance"></a></li>
+              <li><a href="#" class="icofont icofont-social-dribble"></a></li>
+           	  <li><a href="#" class="icofont icofont-social-linkedin"></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!--== Footer End ==-->
+
+  <!--== Go to Top  ==-->
+  <a href="javascript:" id="return-to-top"><i class="icofont icofont-arrow-up"></i></a>
+  <!--== Go to Top End ==-->
+
+</div>
+<!--== Wrapper End ==-->
+
+<!--== Javascript Plugins ==-->
+<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+<script src="{% static 'assets/js/smoothscroll.js' %}"></script>
+<script src="{% static 'assets/js/plugins.js' %}"></script>
+<script src="{% static 'assets/js/master.js' %}"></script>
+
+<!-- Revolution js Files -->
+<script type="text/javascript" src="{% static 'revolution/js/jquery.themepunch.tools.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'revolution/js/jquery.themepunch.revolution.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'revolution/js/revolution.extension.actions.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'revolution/js/revolution.extension.carousel.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'revolution/js/revolution.extension.kenburn.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'revolution/js/revolution.extension.layeranimation.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'revolution/js/revolution.extension.migration.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'revolution/js/revolution.extension.navigation.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'revolution/js/revolution.extension.parallax.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'revolution/js/revolution.extension.slideanims.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'revolution/js/revolution.extension.video.min.js' %}"></script>
+<!--== Javascript Plugins End ==-->
+
+</body>
+</html>

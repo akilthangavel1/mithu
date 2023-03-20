@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.0/dist/js.cookie.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Send the form on enter keypress and avoid if shift is pressed
+            $('#prompt').keypress(function(event) {
+                if (event.keyCode === 13 && !event.shiftKey) {
+                    event.preventDefault();
+                    $('form').submit();
+                }
+            });
+            $('form').on('submit', function(event) {
+                event.preventDefault();
+            // get the CSRF token from the cookie
+            var csrftoken = Cookies.get('csrftoken');
+            
+            // set the CSRF token in the AJAX headers
+            $.ajaxSetup({
+                headers: { 'X-CSRFToken': csrftoken }
+            });
+                // Get the prompt
+                var prompt = $('#prompt').val();
+                var dateTime = new Date();
+                var time = dateTime.toLocaleTimeString();
+                // Add the prompt to the response div<div class="alert alert-success alert-dismissible" role="alert">
+            //     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><i class="icofont icofont-close-line"></i></button>
+            //     Hello! How can I assist you today?
+            // </div>
+                $('#response').append('<div class="alert alert-info alert-dismissible mt-30" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><i class="icofont icofont-close-line"></i></button> '+ time + ' : '+ prompt +'</div>');
+                // $('#response').append('<p>('+ time + ') <i class="bi bi-person"></i>: ' + prompt + '</p>');
+                // Clear the prompt
+                $('#prompt').val('');
+                $.ajax({
+                    url: '{% url "query" %}',
+                    type: 'POST',
+                    data: {prompt: prompt},
+                    dataType: 'json',
+                    success: function(data) {
+                        $('#response').append('<div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><i class="icofont icofont-close-line"></i></button>'+ time +' : '+ data.response +'</div>');
+                        // $('#response').append('<p>('+ time + ') <i class="bi bi-robot"></i>: ' + data.response + '</p>');
+                    }
+                });
+            });
+        });
+    </script>
+    <!--== Message Box Style 01 Start ==-->
+<section class="white-bg">
+    <div class="container">
+    	<div class="row">
+        	<div class="col-sm-8 section-heading">
+              <h4 class="text-uppercase mt-0">AI HEALTHCARE BOT</h4>
+        	</div>
+        </div>
+        <div class="row mt-50">
+          <div class="col-lg-8 col-md-10 col-xs-12 centerize-col" id="res1">
+            
+            <div class="alert alert-success alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><i class="icofont icofont-close-line"></i></button>
+                Hello There!
+            </div>
+            
+            <div id="response">
+            </div>
+            <div class="mt-30" role="alert">
+                <form method="post">
+                    {% csrf_token %}
+                    <input class="form-control" type="text" id="prompt" name="prompt">
+                    <button class="btn btn-md btn-primary btn-square margin-left-auto margin-right-auto display-table-sm" type="submit">Send</button>
+                </form>
+               
+            </div>
+          </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+        
